@@ -13,15 +13,6 @@ resource "snowflake_role" "dw_role" {
     provider = snowflake.role
     name     = var.role
 }
-/*
-resource "snowflake_database_grant" "grant" {
-    provider          = snowflake.role
-    database_name     = "${var.db}"
-    privilege         = "USAGE"
-    roles             = [snowflake_role.dw_role.name]
-    with_grant_option = false
-}
-*/
 resource "snowflake_schema_grant" "grant_write" {
   provider = snowflake.role
   for_each = var.write_schema
