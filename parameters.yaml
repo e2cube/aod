@@ -1,0 +1,29 @@
+database: &DB1
+    name: TEST
+    
+landing-schemas: &LS
+  - name: &E1 ERP1
+  - name: &E2 ERP2
+
+domain-schemas: &DS
+  - name: &D1 DOM1
+  - name: &D2 DOM2
+
+domain-schema-suffix:
+  - DATA
+  - TEST
+
+access_roles: 
+  - name: &R1 SNOW_ERP
+    read_acces: 
+      - *E1 
+    write_access: 
+      - *E2
+  - name: &R2 SNOW_ERP2
+    read_acces: ["DOM1_DATA", "DOM2_DATA"]
+
+user-roles-mapping:
+  - name: &A1 SNOW_AAD_GROUP1
+    roles: 
+      - *R1
+      - *R2
