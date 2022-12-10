@@ -1,6 +1,6 @@
 locals {
     # decode the yaml file 
-    yaml_file = yamldecode(file("C:\\Users\\bmachava\\repos\\articles\\snowflake\\parameters.yaml"))
+    yaml_file = yamldecode(file("parameters.yaml"))
     
     db = local.yaml_file["database"]
 
